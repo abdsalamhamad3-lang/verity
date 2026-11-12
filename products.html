@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products — Verity Codeworks</title>
+  <link rel="shortcut icon" href="assets/fav-logo.png" type="image/x-icon">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Internal CSS Styling -->
+  <style>
+    :root {
+      --vc-forest: #0b3b2e;
+      --vc-forest-dark: #072920;
+      --vc-emerald: #13795b;
+      --vc-mint: #86efac;
+      --vc-sage-bg: #eef5f2;
+      --vc-sage-surface: #f5f9f7;
+      --vc-sage-border: #d5e4de;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--vc-forest);
+      background-color: var(--vc-sage-surface);
+    }
+
+    h1, h2, h3, h4, h5, h6, .navbar-brand, .navbar-nav .nav-link {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      padding-top: 1.25rem;
+      padding-bottom: 1.25rem;
+      background-color: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .navbar-brand img {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .navbar-nav .nav-link {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #334155 !important;
+      padding-left: 0.05rem !important;
+      padding-right: 0.05rem !important;
+      transition: color 0.15s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #0f172a !important;
+    }
+
+    .navbar-nav .nav-link.active {
+      color: #1b873f !important;
+      font-weight: 700;
+    }   
+
+    .btn-nav-talk {
+      background-color: var(--vc-forest);
+      color: #ffffff !important;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 1000;
+      padding: 1rem 1.5rem;
+      border-radius: 999px;
+      border: none;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-nav-talk:hover {
+      background-color: var(--vc-forest-dark);
+      transform: translateY(-1px);
+    }
+
+    /* PRODUCTS HEADER SECTION */
+    .products-header {
+      background-color: #eef5f2;
+      padding: 5rem 0 4rem;
+    }
+
+    .products-breadcrumb {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #13795b;
+      margin-bottom: 1.5rem;
+    }
+
+    .products-eyebrow {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #13795b;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .products-title-main {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2.5rem, 4.5vw, 3.75rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: #0f172a;
+      margin-bottom: 1.25rem;
+    }
+
+    .products-lead-text {
+      font-size: 1.05rem;
+      color: #475569;
+      line-height: 1.7;
+      max-width: 680px;
+      margin-bottom: 0;
+    }
+
+    /* Products Grid Section */
+    .products-main-section {
+      padding: 5rem 0 6rem;
+    }
+
+    .product-card-item {
+      border: 1px solid #d5e4de;
+      border-radius: 20px;
+      overflow: hidden;
+      background-color: #ffffff;
+      box-shadow: 0 4px 12px rgba(11, 59, 46, 0.04);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(11, 59, 46, 0.08);
+    }
+
+    .product-banner-box {
+      padding: 2.5rem 2rem;
+      min-height: 195px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Background Wireframe Box Effect */
+    .product-banner-box::before {
+      content: '';
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      border: 1.5px solid rgba(255, 255, 255, 0.22);
+      border-radius: 24px;
+      transform: rotate(18deg);
+      pointer-events: none;
+    }
+
+    .product-banner-box::after {
+      content: '';
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 32px;
+      transform: rotate(18deg);
+      pointer-events: none;
+    }
+
+    /* Gradients */
+    .banner-dayn-iq { background: linear-gradient(135deg, #4ade80 0%, #16a34a 100%); }
+    .banner-movn-iq { background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%); }
+    .banner-veritypro { background: linear-gradient(135deg, #fb923c 0%, #ea580c 100%); }
+    .banner-proworks { background: linear-gradient(135deg, #60a5fa 0%, #1e40af 100%); }
+
+    .banner-brand-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: #ffffff;
+      position: relative;
+      z-index: 2;
+    }
+
+    .proworks-icon-abs {
+      position: absolute;
+      bottom: 12px;
+      right: 14px;
+      z-index: 2;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .card-content-wrap {
+      padding: 1.75rem 2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-category-pill {
+      display: inline-flex;
+      align-items: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 10.1px;
+      font-weight: 800;
+      letter-spacing: 0em;
+      text-transform: uppercase;
+      padding: 0.45rem 1.15rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+      align-self: flex-start;
+    }
+
+    .pill-green { 
+      background-color: #eaf3ec; 
+      color: #1b7a3e; 
+    }
+
+    .pill-orange { 
+      background-color: #fcf4e3; 
+      color: #9c630f; 
+    }
+
+    .card-heading {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-desc {
+      font-size: 0.92rem;
+      color: #475569;
+      line-height: 1.6;
+      margin-bottom: 1.75rem;
+    }
+
+    .card-discover-link {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #166534;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: auto;
+    }
+
+    .card-discover-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Availability Notice Box */
+    .availability-notice {
+      background-color: #e4eee8;
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      font-size: 0.95rem;
+      color: #0f172a;
+      line-height: 1.6;
+      margin-top: 3.5rem;
+    }
+
+    /* Footer Styling */
+    .site-footer {
+      background-color: #0b241d;
+      color: #cbd5e1;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 5rem;
+      padding-bottom: 2.5rem;
+    }
+
+    .footer-heading {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-brand-text {
+      color: #ffffff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-desc {
+      font-size: 0.88rem;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+
+    .footer-link {
+      color: #94a3b8 !important;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.15s ease;
+    }
+
+    .footer-link:hover {
+      color: #ffffff !important;
+    }
+
+    .footer-contact-item {
+      color: #7ad67c !important;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .footer-address {
+      font-size: 0.88rem;
+      color: #94a3b8;
+      line-height: 1.6;
+      margin-top: 0.75rem;
+    }
+
+    .footer-bottom-bar {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      margin-top: 3rem;
+      padding-top: 2rem;
+      font-size: 0.82rem;
+      color: #64748b;
+    }
+
+    /* FIXED NETLIFY BADGE & MODAL */
+    .netlify-badge-wrapper {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .netlify-pill-btn {
+      background-color: #0b1f20;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 0.55rem 1.15rem;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .netlify-pill-btn:hover {
+      background-color: #112d2f;
+      transform: translateY(-2px);
+    }
+
+    .netlify-modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(3px);
+      z-index: 10000;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding: 24px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+
+    .netlify-modal-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .netlify-modal-box {
+      background-color: #0c2325;
+      color: #ffffff;
+      border-radius: 20px;
+      padding: 2rem;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.25s ease;
+    }
+
+    .netlify-modal-backdrop.active .netlify-modal-box {
+      transform: translateY(0);
+    }
+
+    .netlify-modal-close {
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      font-size: 1.25rem;
+      cursor: pointer;
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      padding: 0;
+      line-height: 1;
+    }
+
+    .netlify-modal-close:hover {
+      color: #ffffff;
+    }
+
+  .netlify-modal-title {
+  display: inline-block;
+  font-size: 1.25rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #2dd4bf 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+    .netlify-modal-desc {
+      font-size: 0.88rem;
+      color: #94a3b8;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+
+    .netlify-input-form {
+      background-color: #0f2b2d;
+      border: 1.5px solid #14b8a6;
+      border-radius: 14px;
+      padding: 0.65rem 0.75rem 0.65rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.12);
+    }
+
+    .netlify-text-input {
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-size: 0.9rem;
+      width: 100%;
+      outline: none;
+    }
+
+    .netlify-text-input::placeholder {
+      color: #64748b;
+    }
+
+    .netlify-send-btn {
+      background-color: #14b8a6;
+      color: #0c2325;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background-color 0.15s ease;
+    }
+
+    .netlify-send-btn:hover {
+      background-color: #0d9488;
+    }
+
+    .netlify-or-divider {
+      text-align: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #64748b;
+      margin: 1.25rem 0;
+    }
+
+    .netlify-action-card {
+      background-color: #0f2b2d;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #e2e8f0;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.15s ease;
+    }
+
+    .netlify-action-card:hover {
+      background-color: #133538;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-md sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center text-decoration-none" href="index.html">
+        <img src="assets/logo.png" alt="Verity Codeworks Logo">
+      </a>
+
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+        <ul class="navbar-nav align-items-md-center gap-md-1 gap-lg-3 mt-3 mt-md-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link active" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="proworks.html">ProWorks</a></li>
+          <li class="nav-item"><a class="nav-link" href="solutions.html">Solutions</a></li>
+          <li class="nav-item ms-md-3">
+            <a class="btn btn-nav-talk d-inline-flex align-items-center gap-1" href="contact.html">
+              <span>Let’s talk</span>
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5"/>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <!-- PRODUCTS HEADER -->
+    <section class="products-header">
+      <div class="container">
+        <div class="products-breadcrumb">Home / Products</div>
+        <span class="products-eyebrow">VERITY CODEWORKS LIMITED</span>
+        <h1 class="products-title-main">
+          Products with purpose.
+        </h1>
+        <p class="products-lead-text">
+          Explore our software product families. Each has its own focus, with availability and access details provided directly by the team.
+        </p>
+      </div>
+    </section>
+
+    <!-- PRODUCTS MAIN SECTION -->
+    <section class="products-main-section">
+      <div class="container">
+        <!-- 4 Product Cards Grid -->
+        <div class="row g-4">
+          
+          <!-- DAYN-IQ -->
+          <div class="col-12 col-md-6 col-lg-3">
+            <article class="product-card-item">
+              <div class="product-banner-box banner-dayn-iq">
+                <span class="banner-brand-title">DAYN-IQ</span>
+              </div>
+              <div class="card-content-wrap">
+                <span class="card-category-pill pill-green">PRODUCTIVITY</span>
+                <h3 class="card-heading">DAYN-IQ</h3>
+                <p class="card-desc">
+                  Bring structure to busy days with purposeful planning, meaningful priorities and a clearer weekly rhythm.
+                </p>
+                <a href="dayn-iq.html" class="card-discover-link">
+                  <span>Discover DAYN-IQ</span>
+                  <span>→</span>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- MOVN-IQ -->
+          <div class="col-12 col-md-6 col-lg-3">
+            <article class="product-card-item">
+              <div class="product-banner-box banner-movn-iq">
+                <span class="banner-brand-title">MOVN-IQ</span>
+              </div>
+              <div class="card-content-wrap">
+                <span class="card-category-pill pill-green">FITNESS & WELLBEING</span>
+                <h3 class="card-heading">MOVN-IQ</h3>
+                <p class="card-desc">
+                  A more joined-up approach to strength, training progression and everyday nutrition.
+                </p>
+                <a href="movn-iq.html" class="card-discover-link">
+                  <span>Discover MOVN-IQ</span>
+                  <span>→</span>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- VerityPro -->
+          <div class="col-12 col-md-6 col-lg-3">
+            <article class="product-card-item">
+              <div class="product-banner-box banner-veritypro">
+                <span class="banner-brand-title">VerityPro</span>
+              </div>
+              <div class="card-content-wrap">
+                <span class="card-category-pill pill-green">PROJECT OPERATIONS</span>
+                <h3 class="card-heading">VerityPro</h3>
+                <p class="card-desc">
+                  Make complex work easier to coordinate with clearer tasks, deliverables and project visibility.
+                </p>
+                <a href="veritypro.html" class="card-discover-link">
+                  <span>Discover VerityPro</span>
+                  <span>→</span>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- ProWorks -->
+          <div class="col-12 col-md-6 col-lg-3">
+            <article class="product-card-item">
+              <div class="product-banner-box banner-proworks">
+                <span class="banner-brand-title">ProWorks</span>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="proworks-icon-abs" aria-hidden="true">
+                  <path d="M3 10.5L12 3l9 7.5"/>
+                  <path d="M5 9.5V20h14V9.5"/>
+                  <path d="M9 20v-6h6v6"/>
+                </svg>
+              </div>
+              <div class="card-content-wrap">
+                <span class="card-category-pill pill-orange">ON-DEMAND TRADES · NIGERIA</span>
+                <h3 class="card-heading">ProWorks</h3>
+                <p class="card-desc">
+                  An on-demand tradespeople service connecting customers with local skilled professionals. ProWorks currently serves Nigeria and is built for wider markets.
+                </p>
+                <a href="proworks.html" class="card-discover-link">
+                  <span>Discover ProWorks</span>
+                  <span>→</span>
+                </a>
+              </div>
+            </article>
+          </div>
+
+        </div>
+
+        <!-- Availability Notice -->
+        <div class="availability-notice ">
+          Product access and service availability vary. ProWorks currently serves Nigeria; contact our team for local availability and access details
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        
+        <div class="col-12 col-md-6 col-lg-4">
+          <a class="d-flex align-items-center text-decoration-none mb-3" href="index.html">
+            <img src="assets/logo.png" alt="Verity Codeworks Logo" style="height: 38px; width: auto;">
+          </a>
+          <p class="footer-brand-text">Software that moves you forward[cite: 20].</p>
+          <p class="footer-desc pe-lg-4">
+            Thoughtfully designed digital products and software development services for people and organisations[cite: 20].
+          </p>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2">
+          <h4 class="footer-heading">Explore</h4>
+          <ul class="list-unstyled vstack gap-2">
+            <li><a href="about.html" class="footer-link">About us</a></li>
+            <li><a href="solutions.html" class="footer-link">Solutions</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2">
+          <h4 class="footer-heading">Products</h4>
+          <ul class="list-unstyled vstack gap-2">
+            <li><a href="dayn-iq.html" class="footer-link">DAYN-IQ</a></li>
+            <li><a href="movn-iq.html" class="footer-link">MOVN-IQ</a></li>
+            <li><a href="veritypro.html" class="footer-link">VerityPro</a></li>
+            <li><a href="proworks.html" class="footer-link">ProWorks</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-12 col-lg-4">
+          <h4 class="footer-heading">Get in touch</h4>
+          <ul class="list-unstyled vstack gap-2">
+            <li><a href="mailto:sales@veritycodeworks.com" class="footer-contact-item">sales@veritycodeworks.com</a></li>
+            <li><a href="mailto:support@veritycodeworks.com" class="footer-contact-item">support@veritycodeworks.com</a></li>
+            <li class="footer-address">
+              Registered office: 26 Metcalf Road, Newthorpe, Nottingham NG16 3NL, United Kingdom[cite: 20]
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom-bar d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+        <div>
+          © 2026 VERITY CODEWORKS LIMITED · Registered in England & Wales · Company No. 17565081[cite: 20]
+        </div>
+        <div class="d-flex gap-4">
+          <a href="privacy.html" class="footer-link">Privacy</a>
+          <a href="cookies.html" class="footer-link">Cookies</a>
+          <a href="terms.html" class="footer-link">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- NETLIFY FLOATING BADGE & MODAL -->
+  <div class="netlify-badge-wrapper">
+    <!-- Trigger Button -->
+    <button class="netlify-pill-btn" id="netlifyBadgeBtn" aria-label="Open Netlify Modal">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2V6M12 18V22M2 12H6M18 12H22M4.93 4.93L7.76 7.76M16.24 16.24L19.07 19.07M4.93 19.07L7.76 16.24M16.24 7.76L19.07 4.93" stroke="#14b8a6" stroke-width="2.5" stroke-linecap="round"/>
+        <rect x="10.5" y="10.5" width="3" height="3" fill="#14b8a6"/>
+      </svg>
+      <span>Powered by <strong>Netlify</strong></span>
+    </button>
+
+    <!-- Modal Backdrop & Popup -->
+    <div class="netlify-modal-backdrop" id="netlifyModalBackdrop">
+      <div class="netlify-modal-box">
+        <button class="netlify-modal-close" id="netlifyCloseBtn" aria-label="Close Modal">×</button>
+        
+        <div class="netlify-modal-title">Build your own site with Netlify</div>
+        <div class="netlify-modal-desc">Describe what you want, and an AI agent designs, builds and deploys it in minutes.</div>
+
+        <div class="netlify-input-form">
+          <input type="text" class="netlify-text-input" placeholder="A shop for my handmade surfboards..." aria-label="Describe your site">
+          <button class="netlify-send-btn" aria-label="Generate site">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 12V4M4 8l4-4 4 4"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="netlify-or-divider">OR</div>
+
+        <a href="#" class="netlify-action-card">
+          <span>Drop a site you already have</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 8h10M9 4l4 4-4 4"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Toggle Script -->
+  <script>
+    const badgeBtn = document.getElementById('netlifyBadgeBtn');
+    const modalBackdrop = document.getElementById('netlifyModalBackdrop');
+    const closeBtn = document.getElementById('netlifyCloseBtn');
+
+    badgeBtn.addEventListener('click', () => {
+      modalBackdrop.classList.add('active');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modalBackdrop.classList.remove('active');
+    });
+
+    modalBackdrop.addEventListener('click', (e) => {
+      if (e.target === modalBackdrop) {
+        modalBackdrop.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProWorks — On-Demand Tradespeople Marketplace — Verity Codeworks</title>
+  <link rel="shortcut icon" href="assets/fav-logo.png" type="image/x-icon">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Internal CSS Styling -->
+  <style>
+    :root {
+      --vc-forest: #0b3b2e;
+      --vc-forest-dark: #072920;
+      --vc-emerald: #13795b;
+      --vc-mint: #86efac;
+      --vc-sage-bg: #eef5f2;
+      --vc-sage-surface: #f5f9f7;
+      --vc-sage-border: #d5e4de;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--vc-forest);
+      background-color: var(--vc-sage-surface);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6, .navbar-brand, .navbar-nav .nav-link {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      padding-top: 1.25rem;
+      padding-bottom: 1.25rem;
+      background-color: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .navbar-brand img {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .navbar-nav .nav-link {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #334155 !important;
+      padding-left: 0.05rem !important;
+      padding-right: 0.05rem !important;
+      transition: color 0.15s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #0f172a !important;
+    }
+
+    .navbar-nav .nav-link.active {
+      color: #1b873f !important;
+      font-weight: 700;
+    }   
+
+    .btn-nav-talk {
+      background-color: var(--vc-forest);
+      color: #ffffff !important;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 1000;
+      padding: 1rem 1.5rem;
+      border-radius: 999px;
+      border: none;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-nav-talk:hover {
+      background-color: var(--vc-forest-dark);
+      transform: translateY(-1px);
+    }
+
+    /* PROWORKS HERO SECTION */
+    .proworks-hero {
+      background-color: #f5f9f7;
+      padding: 5.5rem 0 6rem;
+    }
+
+    .proworks-breadcrumb {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #13795b;
+      margin-bottom: 1rem;
+    }
+
+    .proworks-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #13795b;
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+
+    .proworks-title {
+      font-size: clamp(2.6rem, 4.8vw, 4.1rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: #0b3b2e;
+      margin-bottom: 1.5rem;
+    }
+
+    .proworks-lead {
+      font-size: 1.08rem;
+      line-height: 1.65;
+      color: #475569;
+      max-width: 520px;
+      margin-bottom: 2.25rem;
+    }
+
+    /* Interactive ProWorks Mockup Card */
+    .proworks-mockup-frame {
+      transform: rotate(1deg);
+      background-color: #e2ede8;
+      padding: 10px;
+      border-radius: 26px;
+      box-shadow: 0 20px 40px rgba(11, 59, 46, 0.08);
+    }
+
+    .proworks-mockup-card {
+      background-color: #ffffff;
+      color: #0f172a;
+      border-radius: 20px;
+      padding: 2.25rem;
+    }
+
+    .service-location-box {
+      background-color: #f6f8f7;
+      border: 1px solid #d5e4de;
+      border-radius: 14px;
+      padding: 1rem 1.15rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .service-badge-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background-color: #dcfce7;
+      color: #166534;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .service-category-pill {
+      background-color: #f6f8f7;
+      border: 1px solid #d5e4de;
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #0b3b2e;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .step-indicator-row {
+      border-top: 1px solid #f1f5f9;
+      padding-top: 1.25rem;
+      margin-top: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #64748b;
+      margin-bottom: 1.25rem;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .step-num {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background-color: #e2e8f0;
+      color: #334155;
+      font-size: 0.6rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-item.active .step-num {
+      background-color: #166534;
+      color: #ffffff;
+    }
+
+    .step-item.active {
+      color: #0f172a;
+    }
+
+    /* Content Sections */
+    .section-proworks-features {
+      padding: 6rem 0;
+    }
+
+    .section-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #13795b;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .process-step-card {
+      background-color: #ffffff;
+      border: 1px solid #d5e4de;
+      border-radius: 20px;
+      padding: 2.25rem;
+      height: 100%;
+      box-shadow: 0 4px 12px rgba(11, 59, 46, 0.04);
+    }
+
+    .process-card-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 0.75rem;
+    }
+
+    .process-card-desc {
+      font-size: 0.95rem;
+      color: #475569;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    /* Customer & Trade Section */
+    .audience-card {
+      background-color: #e4eee8;
+      border-radius: 24px;
+      padding: 3rem;
+      height: 100%;
+    }
+
+    .trade-tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .trade-pill {
+      background-color: #ffffff;
+      color: #0f172a;
+      border: 1px solid #d5e4de;
+      border-radius: 999px;
+      padding: 0.45rem 1.15rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    /* CTA Banner */
+    .proworks-cta-section {
+      padding: 4rem 0 6rem;
+    }
+
+    .proworks-cta-box {
+      background-color: #0b241d;
+      border-radius: 24px;
+      padding: 3.5rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .proworks-cta-box {
+        flex-direction: row !important;
+        align-items: center !important;
+      }
+    }
+
+    /* Footer Styling */
+    .site-footer {
+      background-color: #0b241d;
+      color: #cbd5e1;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 5rem;
+      padding-bottom: 2.5rem;
+    }
+
+    .footer-heading {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-brand-text {
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-desc {
+      font-size: 0.88rem;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+
+    .footer-link {
+      color: #94a3b8 !important;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.15s ease;
+    }
+
+    .footer-link:hover {
+      color: #ffffff !important;
+    }
+
+    .footer-contact-item {
+      color: #7ad67c !important;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .footer-address {
+      font-size: 0.88rem;
+      color: #94a3b8;
+      line-height: 1.6;
+      margin-top: 0.75rem;
+    }
+
+    .footer-bottom-bar {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      margin-top: 3rem;
+      padding-top: 2rem;
+      font-size: 0.82rem;
+      color: #64748b;
+    }
+
+    /* FIXED NETLIFY BADGE & MODAL */
+    .netlify-badge-wrapper {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .netlify-pill-btn {
+      background-color: #0b1f20;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 0.55rem 1.15rem;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .netlify-pill-btn:hover {
+      background-color: #112d2f;
+      transform: translateY(-2px);
+    }
+
+    .netlify-modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(3px);
+      z-index: 10000;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding: 24px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+
+    .netlify-modal-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .netlify-modal-box {
+      background-color: #0c2325;
+      color: #ffffff;
+      border-radius: 20px;
+      padding: 2rem;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.25s ease;
+    }
+
+    .netlify-modal-backdrop.active .netlify-modal-box {
+      transform: translateY(0);
+    }
+
+    .netlify-modal-close {
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      font-size: 1.25rem;
+      cursor: pointer;
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      padding: 0;
+      line-height: 1;
+    }
+
+    .netlify-modal-close:hover {
+      color: #ffffff;
+    }
+
+   .netlify-modal-title {
+  display: inline-block;
+  font-size: 1.25rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #2dd4bf 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+    .netlify-modal-desc {
+      font-size: 0.88rem;
+      color: #94a3b8;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+
+    .netlify-input-form {
+      background-color: #0f2b2d;
+      border: 1.5px solid #14b8a6;
+      border-radius: 14px;
+      padding: 0.65rem 0.75rem 0.65rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.12);
+    }
+
+    .netlify-text-input {
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-size: 0.9rem;
+      width: 100%;
+      outline: none;
+    }
+
+    .netlify-text-input::placeholder {
+      color: #64748b;
+    }
+
+    .netlify-send-btn {
+      background-color: #14b8a6;
+      color: #0c2325;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background-color 0.15s ease;
+    }
+
+    .netlify-send-btn:hover {
+      background-color: #0d9488;
+    }
+
+    .netlify-or-divider {
+      text-align: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #64748b;
+      margin: 1.25rem 0;
+    }
+
+    .netlify-action-card {
+      background-color: #0f2b2d;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #e2e8f0;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.15s ease;
+    }
+
+    .netlify-action-card:hover {
+      background-color: #133538;
+    }
+
+    /* Responsive Spacing Adjustments */
+    @media (max-width: 991.98px) {
+      .proworks-hero {
+        padding: 4rem 0;
+      }
+      .section-proworks-features {
+        padding: 4rem 0;
+      }
+      .proworks-cta-box {
+        padding: 2.5rem 2rem !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-md sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center text-decoration-none" href="index.html">
+        <img src="assets/logo.png" alt="Verity Codeworks Logo">
+      </a>
+
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+        <ul class="navbar-nav align-items-md-center gap-md-1 gap-lg-3 mt-3 mt-md-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link active" href="proworks.html">ProWorks</a></li>
+          <li class="nav-item"><a class="nav-link" href="solutions.html">Solutions</a></li>
+          <li class="nav-item ms-md-3">
+            <a class="btn btn-nav-talk d-inline-flex align-items-center gap-1" href="contact.html">
+              <span>Let’s talk</span>
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5"/>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <!-- HERO SECTION -->
+    <section class="proworks-hero">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          
+          <!-- Left Column -->
+          <div class="col-12 col-lg-6">
+            <div class="proworks-breadcrumb">Home / Products / ProWorks</div>
+            <span class="proworks-eyebrow">PROWORKS · ON-DEMAND TRADESPEOPLE · SERVING NIGERIA</span>
+            <h1 class="proworks-title">
+              Skilled help.<br>
+              <span style="color: #13795b;">On demand.</span>
+            </h1>
+            <p class="proworks-lead">
+              ProWorks connects people and businesses with local tradespeople in Nigeria. From household repairs to planned maintenance, find the right skills for the job without the usual back-and-forth.
+            </p>
+
+            <div class="d-flex flex-wrap gap-3 mb-4">
+              <a href="contact.html" class="btn rounded-pill px-4 py-3 fw-bold d-inline-flex align-items-center gap-2" style="background-color: #0b3b2e; color: #ffffff;">
+                <span>Find skilled help</span>
+                <span>↗</span>
+              </a>
+              <a href="#how-it-works" class="btn rounded-pill px-4 py-3 fw-bold" style="border-color: #d5e4de; color: #0b3b2e; background-color: #ffffff;">
+                How ProWorks works
+              </a>
+            </div>
+
+            <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; max-width: 480px; margin-bottom: 0;">
+              <strong>Current geographical coverage: Nigeria.</strong> ProWorks is designed for expansion into additional markets. Service availability may vary by location and trade.
+            </p>
+          </div>
+
+          <!-- Right Column: Mockup Card -->
+          <div class="col-12 col-lg-6">
+            <div class="proworks-mockup-frame">
+              <div class="proworks-mockup-card">
+                
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                  <div>
+                    <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.15rem; font-weight: 800; color: #0b3b2e;">ProWorks</div>
+                    <div style="font-size: 0.68rem; font-weight: 800; letter-spacing: 0.1em; color: #64748b; text-transform: uppercase;">ON-DEMAND TRADES</div>
+                  </div>
+                  <div style="background-color: #dcfce7; color: #166534; font-size: 0.7rem; font-weight: 800; padding: 0.3rem 0.75rem; border-radius: 999px; letter-spacing: 0.06em;">
+                    ● NIGERIA
+                  </div>
+                </div>
+
+                <div style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+                  <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.35rem; font-weight: 800; color: #0b3b2e; margin-bottom: 0.35rem;">
+                    What do you need help with?
+                  </div>
+                  <div style="font-size: 0.88rem; color: #64748b;">
+                    Describe your job. Connect with the right trade.
+                  </div>
+                </div>
+
+                <div class="service-location-box">
+                  <div class="d-flex align-items-center gap-3">
+                    <div class="service-badge-icon">◎</div>
+                    <div>
+                      <div class="fw-bold text-dark small">Service location</div>
+                      <div class="text-muted" style="font-size: 0.78rem;">Nigeria · Subject to local availability</div>
+                    </div>
+                  </div>
+                  <span class="text-muted fw-bold">v</span>
+                </div>
+
+                <div class="row g-2 mb-3">
+                  <div class="col-6">
+                    <div class="service-category-pill">⚡ Electrical</div>
+                  </div>
+                  <div class="col-6">
+                    <div class="service-category-pill">🔧 Plumbing</div>
+                  </div>
+                  <div class="col-6">
+                    <div class="service-category-pill">🪚 Carpentry</div>
+                  </div>
+                  <div class="col-6">
+                    <div class="service-category-pill">🏠 Repairs</div>
+                  </div>
+                </div>
+
+                <div class="step-indicator-row">
+                  <div class="step-item active">
+                    <span class="step-num">1</span> Request
+                  </div>
+                  <div class="step-item">
+                    <span class="step-num">2</span> Connect
+                  </div>
+                  <div class="step-item">
+                    <span class="step-num">3</span> Arrange
+                  </div>
+                  <div class="step-item">
+                    <span class="step-num">4</span> Complete
+                  </div>
+                </div>
+
+                <div style="background-color: #0b241d; color: #ffffff; border-radius: 14px; padding: 1.15rem 1.25rem; display: flex; justify-content: space-between; align-items: center; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.95rem;">
+                  <span>Less searching. More doing.</span>
+                  <span>↗</span>
+                </div>
+
+              </div>
+            </div>
+
+            <div style="font-size: 0.72rem; color: #94a3b8; text-align: center; margin-top: 1rem;">
+              Illustrative graphic of the service journey. For service access, contact the ProWorks team.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW PROWORKS WORKS SECTION -->
+    <section id="how-it-works" class="section-proworks-features">
+      <div class="container">
+        <div class="mb-5" style="max-width: 600px;">
+          <span class="section-eyebrow">How ProWorks works</span>
+          <h2 class="section-title">From "I need someone"<br>to "job done."</h2>
+          <p class="text-secondary" style="font-size: 1.05rem;">
+            ProWorks brings the convenience of on-demand services to skilled trades. Instead of searching through scattered listings, start with the job that needs doing.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          
+          <!-- Step 1 -->
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="process-step-card">
+              <div class="d-inline-flex align-items-center justify-content-center mb-3" style="background-color: #dcfce7; color: #166534; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.8rem; font-weight: 800; padding: 0.35rem 0.85rem; border-radius: 999px;">
+                01
+              </div>
+              <h3 class="process-card-title">Describe the job</h3>
+              <p class="process-card-desc">Share the type of work, your location and the details a professional needs to understand the request.</p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="process-step-card">
+              <div class="d-inline-flex align-items-center justify-content-center mb-3" style="background-color: #dcfce7; color: #166534; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.8rem; font-weight: 800; padding: 0.35rem 0.85rem; border-radius: 999px;">
+                02
+              </div>
+              <h3 class="process-card-title">Connect with a trade</h3>
+              <p class="process-card-desc">Find professionals relevant to your service request and location in Nigeria, subject to local availability.</p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="process-step-card">
+              <div class="d-inline-flex align-items-center justify-content-center mb-3" style="background-color: #dcfce7; color: #166534; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.8rem; font-weight: 800; padding: 0.35rem 0.85rem; border-radius: 999px;">
+                03
+              </div>
+              <h3 class="process-card-title">Agree the work</h3>
+              <p class="process-card-desc">Clarify the scope, expected timing and commercial terms with the tradesperson before work begins.</p>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="process-step-card">
+              <div class="d-inline-flex align-items-center justify-content-center mb-3" style="background-color: #dcfce7; color: #166534; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.8rem; font-weight: 800; padding: 0.35rem 0.85rem; border-radius: 999px;">
+                04
+              </div>
+              <h3 class="process-card-title">Get it done</h3>
+              <p class="process-card-desc">Move from request to delivery with clearer communication and a more convenient service experience.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- AUDIENCE SECTION: CUSTOMERS & PROFESSIONALS -->
+    <section class="py-5 bg-white border-top border-bottom">
+      <div class="container py-lg-4">
+        <div class="row align-items-center g-5">
+          
+          <!-- Customers in Nigeria (Left Column) -->
+          <div class="col-12 col-lg-6">
+            <span class="section-eyebrow">For customers in Nigeria</span>
+            <h3 class="section-title mb-3">Help when life doesn't wait.</h3>
+            <p class="text-secondary mb-4" style="font-size: 1.05rem; line-height: 1.6;">
+              For households, businesses and property managers, ProWorks makes it easier to connect with the skilled help needed to repair, improve or maintain a property.
+            </p>
+            <div class="trade-tag-list">
+              <span class="trade-pill">Electricians</span>
+              <span class="trade-pill">Plumbers</span>
+              <span class="trade-pill">Carpenters</span>
+              <span class="trade-pill">Appliance repair</span>
+              <span class="trade-pill">Painters</span>
+              <span class="trade-pill">Builders</span>
+              <span class="trade-pill">Cleaning</span>
+              <span class="trade-pill">Maintenance</span>
+            </div>
+          </div>
+
+          <!-- Trade Professionals (Right Column Card) -->
+          <div class="col-12 col-lg-6">
+            <div class="audience-card">
+              <span class="section-eyebrow mb-2">For trade professionals</span>
+              <h3 class="section-title mb-3" style="color: #0f172a;">Your skills deserve to be found.</h3>
+              <p class="text-secondary mb-4" style="font-size: 1.05rem; line-height: 1.6;">
+                ProWorks gives independent tradespeople and service businesses a channel to connect with customers seeking their skills. Enquire about participating in Nigeria.
+              </p>
+              <a href="contact.html" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; font-weight: 700; color: #166534; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
+                <span>Enquire as a tradesperson</span>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- REAL WORLD DESIGN & RELIABILITY SECTION -->
+    <section class="py-5 bg-white">
+      <div class="container py-lg-4">
+        
+        <div class="mb-5" style="max-width: 650px;">
+          <span class="section-eyebrow">Reliable service starts with clarity</span>
+          <h2 class="section-title">Designed for real work in the real world.</h2>
+          <p class="text-secondary" style="font-size: 1.05rem; line-height: 1.6;">
+            ProWorks focuses on matching service needs to appropriate skills, with clear communication throughout the engagement.
+          </p>
+        </div>
+
+        <!-- 3-Column Grid -->
+        <div class="row g-4 mb-5">
+          
+          <!-- Card 1 -->
+          <div class="col-12 col-md-4">
+            <div class="process-step-card">
+              <div class="d-inline-flex align-items-center justify-content-center mb-3" style="background-color: #dcfce7; color: #166534; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.8rem; font-weight: 800; padding: 0.35rem 0.85rem; border-radius: 999px;">
+                01
+              </div>
+              <h3 class="process-card-title">Right skills, right request</h3>
+              <p class="process-card-desc">Start with the trade, task and location, so the enquiry is relevant to the work required.</p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="col-12 col-md-4">
+            <div class="process-step-card">
+              <div class="d-inline-flex align-items-center justify-content-center mb-3" style="background-color: #dcfce7; color: #166534; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.8rem; font-weight: 800; padding: 0.35rem 0.85rem; border-radius: 999px;">
+                02
+              </div>
+              <h3 class="process-card-title">Clear expectations</h3>
+              <p class="process-card-desc">Discuss job scope, quotes, timing and any qualifications required before confirming work.</p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="col-12 col-md-4">
+            <div class="process-step-card">
+              <div class="d-inline-flex align-items-center justify-content-center mb-3" style="background-color: #dcfce7; color: #166534; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.8rem; font-weight: 800; padding: 0.35rem 0.85rem; border-radius: 999px;">
+                03
+              </div>
+              <h3 class="process-card-title">Nigeria today. Wider markets next.</h3>
+              <p class="process-card-desc">Our current geographical service coverage is Nigeria. ProWorks' platform model is designed to adapt to additional markets over time.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Disclaimer Footer Note -->
+        <div style="font-size: 0.85rem; color: #64748b; line-height: 1.6; max-width: 900px;">
+          Availability varies by location and profession. This corporate site provides product information and contact routes; it does not itself process bookings or payments. Customers should confirm qualifications, terms and costs with the relevant service provider.
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="proworks-cta-section pt-5">
+      <div class="container">
+        <div class="proworks-cta-box">
+          <div>
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #86efac; margin-bottom: 0.75rem; display: block;">
+              PROWORKS · CURRENTLY SERVING NIGERIA
+            </span>
+            <h2 class="text-white fw-bold display-6 mb-3" style="font-size: 2.5rem; letter-spacing: -0.02em; line-height: 1.15;">
+              Your next job starts with a<br>conversation.
+            </h2>
+            <p style="font-size: 1.05rem; color: #94a3b8; max-width: 520px; line-height: 1.6; margin-bottom: 0;">
+              Need a professional, or want to join as a tradesperson? Contact our team about ProWorks access in your area.
+            </p>
+          </div>
+
+          <div>
+            <a href="contact.html" class="btn btn-lg rounded-pill px-4 fs-6 fw-bold d-inline-flex align-items-center gap-2" style="background-color: #86efac; color: #0b241d; border: none; transition: background-color 0.2s ease, transform 0.2s ease; white-space: nowrap;">
+              <span>Contact ProWorks</span>
+              <span>↗</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        
+        <div class="col-12 col-md-6 col-lg-4">
+          <a class="d-flex align-items-center text-decoration-none mb-3" href="index.html">
+            <img src="assets/logo.png" alt="Verity Codeworks Logo" style="height: 38px; width: auto;">
+          </a>
+          <p class="footer-brand-text">Software that moves you forward.</p>
+          <p class="footer-desc pe-lg-4">
+            Thoughtfully designed digital products and software development services for people and organisations.
+          </p>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2">
+          <h4 class="footer-heading">Explore</h4>
+          <ul class="list-unstyled vstack gap-2">
+            <li><a href="about.html" class="footer-link">About us</a></li>
+            <li><a href="solutions.html" class="footer-link">Solutions</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2">
+          <h4 class="footer-heading">Products</h4>
+          <ul class="list-unstyled vstack gap-2">
+            <li><a href="dayn-iq.html" class="footer-link">DAYN-IQ</a></li>
+            <li><a href="movn-iq.html" class="footer-link">MOVN-IQ</a></li>
+            <li><a href="veritypro.html" class="footer-link">VerityPro</a></li>
+            <li><a href="proworks.html" class="footer-link">ProWorks</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-12 col-lg-4">
+          <h4 class="footer-heading">Get in touch</h4>
+          <ul class="list-unstyled vstack gap-2">
+            <li><a href="mailto:sales@veritycodeworks.com" class="footer-contact-item">sales@veritycodeworks.com</a></li>
+            <li><a href="mailto:support@veritycodeworks.com" class="footer-contact-item">support@veritycodeworks.com</a></li>
+            <li class="footer-address">
+              Registered office: 26 Metcalf Road, Newthorpe, Nottingham NG16 3NL, United Kingdom
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom-bar d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+        <div>
+          © 2026 VERITY CODEWORKS LIMITED · Registered in England & Wales · Company No. 17565081
+        </div>
+        <div class="d-flex gap-4">
+          <a href="privacy.html" class="footer-link">Privacy</a>
+          <a href="cookies.html" class="footer-link">Cookies</a>
+          <a href="terms.html" class="footer-link">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- NETLIFY FLOATING BADGE & MODAL -->
+  <div class="netlify-badge-wrapper">
+    <!-- Trigger Button -->
+    <button class="netlify-pill-btn" id="netlifyBadgeBtn" aria-label="Open Netlify Modal">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2V6M12 18V22M2 12H6M18 12H22M4.93 4.93L7.76 7.76M16.24 16.24L19.07 19.07M4.93 19.07L7.76 16.24M16.24 7.76L19.07 4.93" stroke="#14b8a6" stroke-width="2.5" stroke-linecap="round"/>
+        <rect x="10.5" y="10.5" width="3" height="3" fill="#14b8a6"/>
+      </svg>
+      <span>Powered by <strong>Netlify</strong></span>
+    </button>
+
+    <!-- Modal Backdrop & Popup -->
+    <div class="netlify-modal-backdrop" id="netlifyModalBackdrop">
+      <div class="netlify-modal-box">
+        <button class="netlify-modal-close" id="netlifyCloseBtn" aria-label="Close Modal">×</button>
+        
+        <div class="netlify-modal-title">Build your own site with Netlify</div>
+        <div class="netlify-modal-desc">Describe what you want, and an AI agent designs, builds and deploys it in minutes.</div>
+
+        <div class="netlify-input-form">
+          <input type="text" class="netlify-text-input" placeholder="A shop for my handmade surfboards..." aria-label="Describe your site">
+          <button class="netlify-send-btn" aria-label="Generate site">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 12V4M4 8l4-4 4 4"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="netlify-or-divider">OR</div>
+
+        <a href="#" class="netlify-action-card">
+          <span>Drop a site you already have</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 8h10M9 4l4 4-4 4"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Toggle Script -->
+  <script>
+    const badgeBtn = document.getElementById('netlifyBadgeBtn');
+    const modalBackdrop = document.getElementById('netlifyModalBackdrop');
+    const closeBtn = document.getElementById('netlifyCloseBtn');
+
+    badgeBtn.addEventListener('click', () => {
+      modalBackdrop.classList.add('active');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modalBackdrop.classList.remove('active');
+    });
+
+    modalBackdrop.addEventListener('click', (e) => {
+      if (e.target === modalBackdrop) {
+        modalBackdrop.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>

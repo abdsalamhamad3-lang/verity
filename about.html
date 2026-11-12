@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Verity Codeworks</title>
+  <link rel="shortcut icon" href="assets/fav-logo.png" type="image/x-icon">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Internal CSS Styling -->
+  <style>
+    :root {
+      --vc-forest: #0b3b2e;
+      --vc-forest-dark: #072920;
+      --vc-emerald: #13795b;
+      --vc-mint: #86efac;
+      --vc-sage-bg: #eef5f2;
+      --vc-sage-surface: #f5f9f7;
+      --vc-sage-border: #d5e4de;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--vc-forest);
+      background-color: var(--vc-sage-surface);
+    }
+
+    h1, h2, h3, h4, h5, h6, .navbar-brand, .navbar-nav .nav-link {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      padding-top: 1.25rem;
+      padding-bottom: 1.25rem;
+      background-color: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .navbar-brand img {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .navbar-nav .nav-link {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #334155 !important;
+      padding-left: 0.05rem !important;
+      padding-right: 0.05rem !important;
+      transition: color 0.15s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #0f172a !important;
+    }
+
+    .navbar-nav .nav-link.active {
+      color: #1b873f !important;
+      font-weight: 700;
+    }   
+
+    .btn-nav-talk {
+      background-color: var(--vc-forest);
+      color: #ffffff !important;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 1000;
+      padding: 1rem 1.5rem;
+      border-radius: 999px;
+      border: none;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-nav-talk:hover {
+      background-color: var(--vc-forest-dark);
+      transform: translateY(-1px);
+    }
+
+   /* ABOUT HEADER SECTION */
+.about-header {
+  background-color: #eef5f2;
+  padding: 5rem 0 4rem;
+}
+
+.about-breadcrumb {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #13795b;
+  margin-bottom: 1.5rem;
+}
+
+.about-eyebrow {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #13795b;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.about-title-main {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(2.5rem, 4.5vw, 3.75rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+  margin-bottom: 1.25rem;
+}
+
+.about-lead-text {
+  font-size: 1.05rem;
+  color: #475569;
+  line-height: 1.7;
+  max-width: 680px;
+  margin-bottom: 0;
+}
+    /* Content Sections */
+    .about-content-section {
+      padding: 5rem 0;
+    }
+
+    .section-eyebrow {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #166534;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .content-heading {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      line-height: 1.25;
+    }
+
+    .content-body p {
+      font-size: 1.05rem;
+      color: #475569;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+/* CORPORATE DETAILS CARD */
+.corporate-card-box {
+  background-color: #e4eee8;
+  border-radius: 24px;
+  padding: 3rem;
+}
+
+.corporate-card-eyebrow {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #13795b;
+  margin-bottom: 1.25rem;
+  display: block;
+}
+
+.corporate-card-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.corporate-card-box p, 
+.corporate-card-box dt {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: #0f172a;
+}
+
+.corporate-card-box p {
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+.corporate-card-box dt {
+  font-weight: 700;
+  margin-top: 1.25rem;
+  margin-bottom: 0.15rem;
+}
+
+.corporate-card-box dd {
+  font-size: 0.95rem;
+  color: #0f172a;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.companies-house-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #13795b;
+  text-decoration: none;
+  margin-top: 1.75rem;
+}
+
+.companies-house-link:hover {
+  text-decoration: underline;
+  color: #0b3b2e;
+}
+
+    /* Footer Styling */
+    .site-footer {
+      background-color: #0b241d;
+      color: #cbd5e1;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 5rem;
+      padding-bottom: 2.5rem;
+    }
+
+    .footer-heading {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-brand-text {
+      color: #ffffff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-desc {
+      font-size: 0.88rem;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+
+    .footer-link {
+      color: #94a3b8 !important;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.15s ease;
+    }
+
+    .footer-link:hover {
+      color: #ffffff !important;
+    }
+
+    .footer-contact-item {
+      color: #7ad67c !important;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .footer-address {
+      font-size: 0.88rem;
+      color: #94a3b8;
+      line-height: 1.6;
+      margin-top: 0.75rem;
+    }
+
+    .footer-bottom-bar {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      margin-top: 3rem;
+      padding-top: 2rem;
+      font-size: 0.82rem;
+      color: #64748b;
+    }
+
+    /* FIXED NETLIFY BADGE & MODAL */
+.netlify-badge-wrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.netlify-pill-btn {
+  background-color: #0b1f20;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.55rem 1.15rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.netlify-pill-btn:hover {
+  background-color: #112d2f;
+  transform: translateY(-2px);
+}
+
+.netlify-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 10000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.netlify-modal-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.netlify-modal-box {
+  background-color: #0c2325;
+  color: #ffffff;
+  border-radius: 20px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.25s ease;
+}
+
+.netlify-modal-backdrop.active .netlify-modal-box {
+  transform: translateY(0);
+}
+
+.netlify-modal-close {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.25rem;
+  cursor: pointer;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  padding: 0;
+  line-height: 1;
+}
+
+.netlify-modal-close:hover {
+  color: #ffffff;
+}
+
+.netlify-modal-title {
+  display: inline-block;
+  font-size: 1.25rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #2dd4bf 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  margin-bottom: 0.5rem;
+}
+.netlify-modal-desc {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+/* Netlify Input Wrapper */
+.netlify-input-form {
+  background-color: #0f2b2d;
+  border: 1.5px solid #14b8a6;
+  border-radius: 14px;
+  padding: 0.65rem 0.75rem 0.65rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.12);
+}
+
+.netlify-text-input {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 0.9rem;
+  width: 100%;
+  outline: none;
+}
+
+.netlify-text-input::placeholder {
+  color: #64748b;
+}
+
+.netlify-send-btn {
+  background-color: #14b8a6;
+  color: #0c2325;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 0.15s ease;
+}
+
+.netlify-send-btn:hover {
+  background-color: #0d9488;
+}
+
+.netlify-or-divider {
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #64748b;
+  margin: 1.25rem 0;
+}
+
+.netlify-action-card {
+  background-color: #0f2b2d;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+.netlify-action-card:hover {
+  background-color: #133538;
+}
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-md sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center text-decoration-none" href="index.html">
+        <img src="assets/logo.png" alt="Verity Codeworks Logo">
+      </a>
+
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+        <ul class="navbar-nav align-items-md-center gap-md-1 gap-lg-3 mt-3 mt-md-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="proworks.html">ProWorks</a></li>
+          <li class="nav-item"><a class="nav-link" href="solutions.html">Solutions</a></li>
+          <li class="nav-item ms-md-3">
+            <a class="btn btn-nav-talk d-inline-flex align-items-center gap-1" href="contact.html">
+              <span>Let’s talk</span>
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5"/>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <!-- ABOUT HEADER -->
+    <section class="about-header">
+      <div class="container">
+        <div class="about-breadcrumb">Home / About</div>
+        <span class="about-eyebrow">VERITY CODEWORKS LIMITED</span>
+        <h1 class="about-title-main">
+          A software company built around progress.
+        </h1>
+        <p class="about-lead-text">
+          Verity Codeworks Limited is a UK-incorporated software business creating practical technology for productivity, wellbeing, project delivery and access to skilled services.
+        </p>
+      </div>
+    </section>
+
+    <!-- OUR STORY & CORPORATE DETAILS SECTION -->
+    <section class="about-content-section">
+      <div class="container">
+        <div class="row g-5">
+          
+          <!-- Left Column: Our Story -->
+          <div class="col-12 col-lg-6">
+            <span class="section-eyebrow">Our story</span>
+            <h2 class="content-heading">Clarity first. Useful technology always.</h2>
+            <div class="content-body">
+              <p>
+                We believe thoughtful software can make complicated days easier to navigate, healthy habits more sustainable and team delivery more transparent.
+              </p>
+              <p>
+                Our products span personal effectiveness, fitness planning, project coordination and ProWorks, an on-demand tradespeople platform currently serving Nigeria.
+              </p>
+              <p>
+                We build with an emphasis on straightforward experiences, privacy-aware decisions and the ability to evolve with customer needs.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Column: Corporate Details -->
+          <div class="col-12 col-lg-6">
+            <div class="corporate-card-box shadow-sm">
+              <span class="corporate-card-eyebrow">Corporate details</span>
+              <h3 class="corporate-card-title">VERITY CODEWORKS LIMITED</h3>
+              
+              <p>Private limited company registered in England and Wales.</p>
+              
+              <dl class="mb-0">
+                <dt>Company number</dt>
+                <dd>17565081</dd>
+                
+                <dt>Registered office</dt>
+                <dd>
+                  26 Metcalf Road, Newthorpe<br>
+                  Nottingham NG16 3NL<br>
+                  United Kingdom
+                </dd>
+              </dl>
+
+              <a href="https://find-and-update.company-information.service.gov.uk/company/17565081" target="_blank" rel="noopener noreferrer" class="companies-house-link">
+                <span>View Companies House record</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        
+        <div class="col-12 col-md-6 col-lg-4">
+          <a class="d-flex align-items-center text-decoration-none mb-3" href="index.html">
+            <img src="assets/logo.png" alt="Verity Codeworks Logo" style="height: 38px; width: auto;">
+          </a>
+          <p class="footer-brand-text">Software that moves you forward.</p>
+          <p class="footer-desc pe-lg-4">
+            Thoughtfully designed digital products and software development services for people and organisations.
+          </p>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2">
+          <h4 class="footer-heading">Explore</h4>
+          <ul class="list-unstyled vstack gap-2">
+            <li><a href="about.html" class="footer-link">About us</a></li>
+            <li><a href="solutions.html" class="footer-link">Solutions</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2">
+          <h4 class="footer-heading">Products</h4>
+          <ul class="list-unstyled vstack gap-2">
+            <li><a href="dayn-iq.html" class="footer-link">DAYN-IQ</a></li>
+            <li><a href="movn-iq.html" class="footer-link">MOVN-IQ</a></li>
+            <li><a href="veritypro.html" class="footer-link">VerityPro</a></li>
+            <li><a href="proworks.html" class="footer-link">ProWorks</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-12 col-lg-4">
+          <h4 class="footer-heading">Get in touch</h4>
+          <ul class="list-unstyled vstack gap-2">
+            <li><a href="mailto:sales@veritycodeworks.com" class="footer-contact-item">sales@veritycodeworks.com</a></li>
+            <li><a href="mailto:support@veritycodeworks.com" class="footer-contact-item">support@veritycodeworks.com</a></li>
+            <li class="footer-address">
+              Registered office: 26 Metcalf Road, Newthorpe, Nottingham NG16 3NL, United Kingdom
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom-bar d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+        <div>
+          © 2026 VERITY CODEWORKS LIMITED · Registered in England & Wales · Company No. 17565081
+        </div>
+        <div class="d-flex gap-4">
+          <a href="privacy.html" class="footer-link">Privacy</a>
+          <a href="cookies.html" class="footer-link">Cookies</a>
+          <a href="terms.html" class="footer-link">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- NETLIFY FLOATING BADGE & MODAL -->
+<div class="netlify-badge-wrapper">
+  <!-- Trigger Button -->
+  <button class="netlify-pill-btn" id="netlifyBadgeBtn" aria-label="Open Netlify Modal">
+    <!-- Exact Netlify Spark/Cross Icon -->
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2V6M12 18V22M2 12H6M18 12H22M4.93 4.93L7.76 7.76M16.24 16.24L19.07 19.07M4.93 19.07L7.76 16.24M16.24 7.76L19.07 4.93" stroke="#14b8a6" stroke-width="2.5" stroke-linecap="round"/>
+      <rect x="10.5" y="10.5" width="3" height="3" fill="#14b8a6"/>
+    </svg>
+    <span>Powered by <strong>Netlify</strong></span>
+  </button>
+
+  <!-- Modal Backdrop & Popup -->
+  <div class="netlify-modal-backdrop" id="netlifyModalBackdrop">
+    <div class="netlify-modal-box">
+      <button class="netlify-modal-close" id="netlifyCloseBtn" aria-label="Close Modal">×</button>
+      
+      <div class="netlify-modal-title">Build your own site with Netlify</div>
+      <div class="netlify-modal-desc">Describe what you want, and an AI agent designs, builds and deploys it in minutes.</div>
+
+      <!-- Functional Input Field -->
+      <div class="netlify-input-form">
+        <input type="text" class="netlify-text-input" placeholder="A shop for my handmade surfboards..." aria-label="Describe your site">
+        <button class="netlify-send-btn" aria-label="Generate site">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 12V4M4 8l4-4 4 4"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="netlify-or-divider">OR</div>
+
+      <a href="#" class="netlify-action-card">
+        <span>Drop a site you already have</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 8h10M9 4l4 4-4 4"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Toggle Script -->
+<script>
+  const badgeBtn = document.getElementById('netlifyBadgeBtn');
+  const modalBackdrop = document.getElementById('netlifyModalBackdrop');
+  const closeBtn = document.getElementById('netlifyCloseBtn');
+
+  badgeBtn.addEventListener('click', () => {
+    modalBackdrop.classList.add('active');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modalBackdrop.classList.remove('active');
+  });
+
+  modalBackdrop.addEventListener('click', (e) => {
+    if (e.target === modalBackdrop) {
+      modalBackdrop.classList.remove('active');
+    }
+  });
+</script>
+
+</body>
+</html>

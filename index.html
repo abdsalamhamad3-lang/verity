@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verity Codeworks — Software that moves you forward.</title>
+  <link rel="shortcut icon" href="assets/fav-logo.png" type="image/x-icon">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Internal CSS Styling -->
+  <style>
+    :root {
+      --vc-forest: #0b3b2e;
+      --vc-forest-dark: #072920;
+      --vc-emerald: #13795b;
+      --vc-mint: #86efac;
+      --vc-mint-btn: #86efac;
+      --vc-sage-bg: #eef5f2;
+      --vc-sage-surface: #f5f9f7;
+      --vc-sage-border: #d5e4de;
+      --vc-dark-bg: #092620;
+      --vc-card-bg: #ffffff;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--vc-forest);
+      background-color: var(--vc-sage-surface);
+    }
+
+    h1, h2, h3, h4, h5, h6, .navbar-brand, .navbar-nav .nav-link {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .fw-extrabold {
+      font-weight: 800;
+    }
+
+    .tracking-wide {
+      letter-spacing: 0.04em;
+    }
+
+    .tracking-wider {
+      letter-spacing: 0.08em;
+    }
+
+    /* Exact Navbar Styling */
+    .navbar {
+      padding-top: 1.25rem;
+      padding-bottom: 1.25rem;
+      background-color: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .navbar-brand img {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .navbar-nav .nav-link {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--vc-nav-text) !important;
+      padding-left: 0.05rem !important;
+      padding-right: 0.05rem !important;
+      transition: color 0.15s ease;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link:focus {
+      color: var(--vc-nav-hover) !important;
+    }
+
+    .navbar-nav .nav-link.active {
+        color: #1b873f !important;
+        font-weight: 700;
+    }   
+
+    /* Navbar CTA Button */
+    .btn-nav-talk {
+      background-color: var(--vc-forest);
+      color: #ffffff !important;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 1000;
+      padding: 1rem 1.5rem;
+      border-radius: 999px;
+      border: none;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-nav-talk:hover {
+      background-color: var(--vc-forest-dark);
+      transform: translateY(-1px);
+    }
+
+    /* Color Utilities */
+    .text-forest { color: var(--vc-forest) !important; }
+    .text-emerald { color: var(--vc-emerald) !important; }
+    .text-mint { color: var(--vc-mint) !important; }
+    .text-amber { color: var(--vc-amber) !important; }
+
+    .section-sage { background-color: var(--vc-sage-bg); }
+    .trust-strip { background-color: #ffffff; border-color: var(--vc-sage-border) !important; }
+    .border-sage { border: 1px solid var(--vc-sage-border) !important; }
+
+    .badge-sage {
+      background-color: #e1efe9;
+      border: 1px solid #c6dfd4;
+    }
+
+    /* Buttons */
+    .btn-forest {
+      background-color: var(--vc-forest);
+      color: #ffffff;
+      border: 1px solid var(--vc-forest);
+      transition: all 0.2s ease;
+    }
+
+    .btn-forest:hover {
+      background-color: var(--vc-forest-dark);
+      border-color: var(--vc-forest-dark);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .btn-outline-forest {
+      color: var(--vc-forest);
+      border: 1.5px solid var(--vc-forest);
+      background-color: transparent;
+      transition: all 0.2s ease;
+    }
+
+    .btn-outline-forest:hover {
+      background-color: var(--vc-forest);
+      color: #ffffff;
+    }
+
+    .btn-mint {
+      background-color: var(--vc-mint);
+      color: var(--vc-forest-dark);
+      border: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-mint:hover {
+      background-color: #a7f3d0;
+      color: var(--vc-forest-dark);
+      transform: translateY(-1px);
+    }
+
+    /* Hero & Ecosystem Card */
+/* HERO SECTION */
+.hero-section {
+  background: radial-gradient(circle at 85% 20%, #10382e 0%, #0d2224 55%, #0b1c1e 100%);
+  color: #ffffff;
+  padding: 5.5rem 0 6.5rem;
+  overflow: hidden;
+}
+
+.hero-eyebrow {
+  color: #7ad67c;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.hero-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(2.6rem, 4.8vw, 4.1rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title .text-mint-accent {
+  color: #7ad67c;
+  font-style: normal;
+}
+
+.hero-lead {
+  font-size: 1.08rem;
+  line-height: 1.65;
+  color: #cbd5e1;
+  max-width: 470px;
+  margin-bottom: 2.25rem;
+}
+
+.btn-hero-primary {
+  background-color: #7ad67c;
+  color: #0b241d;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.9rem 1.75rem;
+  border-radius: 14px;
+  border: none;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-hero-primary:hover {
+  background-color: #65c967;
+  color: #0b241d;
+  transform: translateY(-2px);
+}
+
+.btn-hero-secondary {
+  background-color: rgba(255, 255, 255, 0.03);
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.9rem 1.75rem;
+  border-radius: 14px;
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  transition: all 0.2s ease;
+}
+
+.btn-hero-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+}
+
+/* Slanted Ecosystem Card (Tilts Counter-Clockwise) */
+.ecosystem-frame {
+  transform: rotate(-1.5deg);
+  background-color: #1f3537;
+  padding: 8px;
+  border-radius: 26px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+}
+
+.ecosystem-card {
+  background-color: #ffffff;
+  color: #0f172a;
+  border-radius: 20px;
+  padding: 2.25rem;
+}
+
+.eco-top-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #334155;
+}
+
+.eco-dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #cbd5e1;
+  display: inline-block;
+}
+
+.eco-heading {
+  font-size: 1.55rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #0f172a;
+  padding-top: 1.25rem;
+  border-top: 1px solid #f1f5f9;
+  margin-bottom: 1.5rem;
+}
+
+.eco-item {
+  background-color: #f6f8f7;
+  border-radius: 14px;
+  padding: 0.95rem 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.eco-code {
+  width: 44px;
+  height: 36px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+.code-day { background-color: #dcfce7; color: #166534; }
+.code-mov { background-color: #e0f2fe; color: #0369a1; }
+.code-pro { background-color: #fee2e2; color: #b91c1c; }
+.code-wrk { background-color: #e0e7ff; color: #3730a3; }
+
+.eco-card-footer {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 1rem;
+  margin-top: 1.5rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #64748b;
+}
+
+/* Fixed Caption Wrap */
+.hero-caption-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.hero-caption-text {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  margin-bottom: 0;
+}
+
+/* Static, Cleanly Aligned Mint Badge (No absolute positioning) */
+.floating-forward-badge {
+  background-color: #bbf7d0;
+  color: #0b241d;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  transform: rotate(2.5deg);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+@media (max-width: 576px) {
+  .hero-caption-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+  /* PRODUCTS SECTION */
+.products-section {
+  background-color: var(--vc-sage-surface, #f5f9f7);
+  padding: 6rem 0 5rem;
+}
+
+.products-eyebrow {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #166534;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.products-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.products-lead {
+  font-size: 1.05rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.view-all-link {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #166534;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* Product Cards */
+.product-card-item {
+  border: 1px solid #d5e4de;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(11, 59, 46, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(11, 59, 46, 0.08);
+}
+
+.product-banner-box {
+  padding: 2.5rem 2rem;
+  min-height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+/* Gradients */
+.banner-dayn-iq { background: linear-gradient(135deg, #4ade80 0%, #16a34a 100%); }
+.banner-movn-iq { background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%); }
+.banner-veritypro { background: linear-gradient(135deg, #fb923c 0%, #ea580c 100%); }
+.banner-proworks { background: linear-gradient(135deg, #60a5fa 0%, #1e40af 100%); }
+
+.banner-brand-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.card-content-wrap {
+  padding: 1.75rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Product Header Banners with Rounded Wireframe Boxes */
+.product-banner-box {
+  padding: 2.5rem 2rem;
+  min-height: 195px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Wireframe Box Effect */
+.product-banner-box::before {
+  content: '';
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  border-radius: 24px;
+  transform: rotate(18deg);
+  pointer-events: none;
+}
+
+.product-banner-box::after {
+  content: '';
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 32px;
+  transform: rotate(18deg);
+  pointer-events: none;
+}
+
+/* Gradients */
+.banner-dayn-iq { background: linear-gradient(135deg, #4ade80 0%, #16a34a 100%); }
+.banner-movn-iq { background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%); }
+.banner-veritypro { background: linear-gradient(135deg, #fb923c 0%, #ea580c 100%); }
+.banner-proworks { background: linear-gradient(135deg, #60a5fa 0%, #1e40af 100%); }
+
+.banner-brand-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #ffffff;
+  position: relative;
+  z-index: 2;
+}
+
+.proworks-icon-abs {
+  position: absolute;
+  bottom: 12px;
+  right: 14px;
+  z-index: 2;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Fully Rounded Capsule Pill Tags */
+.card-category-pill {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10.1px;
+  font-weight: 800;
+  letter-spacing: 0em;
+  text-transform: uppercase;
+  padding: 0.45rem 1.15rem;     /* Wider horizontal padding for pill shape */
+  border-radius: 999px;         /* Fully rounded capsule curve */
+  margin-bottom: 1rem;
+  align-self: flex-start;
+}
+
+/* Soft Pill Tints */
+.pill-green { 
+  background-color: #eaf3ec; 
+  color: #1b7a3e; 
+}
+
+.pill-orange { 
+  background-color: #fcf4e3; 
+  color: #9c630f; 
+}
+
+.card-heading {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.75rem;
+}
+
+.card-desc {
+  font-size: 0.92rem;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 1.75rem;
+}
+
+.card-discover-link {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #166534;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: auto;
+}
+
+/* WHAT WE DO & POINT OF VIEW SECTION */
+.section-sage {
+  background-color: #eef5f2;
+}
+
+/* List Checkmarks */
+.feature-checklist {
+  list-style: none;
+  padding-left: 0;
+}
+
+.feature-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 1.02rem;
+  color: #1e293b;
+  margin-bottom: 0.85rem;
+}
+
+.feature-checklist li::before {
+  content: '✓';
+  color: #13795b;
+  font-weight: 800;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+/* Right Column Point of View Card */
+.pov-card-box {
+  background-color: #e4eee8;
+  border-radius: 24px;
+  padding: 3rem;
+}
+
+.pov-eyebrow {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #13795b;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.pov-heading {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.85rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #0f172a;
+  margin-bottom: 2rem;
+  letter-spacing: -0.01em;
+}
+
+/* Outlined Pill Tags */
+.pov-pill-tag {
+  background-color: #ffffff;
+  color: #1e293b;
+  border: 1px solid #d5e4de;
+  border-radius: 999px;
+  padding: 0.5rem 1.25rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* Our Solutions Button */
+.btn-solutions {
+  background-color: #0b3b2e;
+  color: #ffffff !important;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 14px;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-solutions:hover {
+  background-color: #072920;
+  transform: translateY(-1px);
+}
+
+/* CTA BANNER SECTION */
+.cta-section {
+  padding: 4rem 0 5rem;
+}
+
+.cta-box-dark {
+  background-color: #0b241d;
+  border-radius: 24px;
+  padding: 3.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .cta-box-dark {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.cta-eyebrow {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7ad67c;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.cta-heading {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 0;
+}
+
+.btn-cta-mint {
+  background-color: #7ad67c;
+  color: #0b241d;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.9rem 1.75rem;
+  border-radius: 14px;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-cta-mint:hover {
+  background-color: #65c967;
+  color: #0b241d;
+  transform: translateY(-1px);
+}
+
+  /* FOOTER STYLING */
+.site-footer {
+  background-color: #0b241d;
+  color: #cbd5e1;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 5rem;
+  padding-bottom: 2.5rem;
+}
+
+.footer-heading {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+}
+
+.footer-brand-text {
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-desc {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+.footer-link {
+  color: #94a3b8 !important;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.15s ease;
+}
+
+.footer-link:hover {
+  color: #ffffff !important;
+}
+
+.footer-contact-item {
+  color: #7ad67c !important;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-contact-item:hover {
+  text-decoration: underline;
+}
+
+.footer-address {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-top: 0.75rem;
+}
+
+.footer-bottom-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 3rem;
+  padding-top: 2rem;
+  font-size: 0.82rem;
+  color: #64748b;
+}
+
+/* FIXED NETLIFY BADGE & MODAL */
+.netlify-badge-wrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.netlify-pill-btn {
+  background-color: #0b1f20;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.55rem 1.15rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.netlify-pill-btn:hover {
+  background-color: #112d2f;
+  transform: translateY(-2px);
+}
+
+.netlify-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 10000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.netlify-modal-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.netlify-modal-box {
+  background-color: #0c2325;
+  color: #ffffff;
+  border-radius: 20px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.25s ease;
+}
+
+.netlify-modal-backdrop.active .netlify-modal-box {
+  transform: translateY(0);
+}
+
+.netlify-modal-close {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.25rem;
+  cursor: pointer;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  padding: 0;
+  line-height: 1;
+}
+
+.netlify-modal-close:hover {
+  color: #ffffff;
+}
+
+.netlify-modal-title {
+  display: inline-block;
+  font-size: 1.25rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #2dd4bf 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.netlify-modal-desc {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+/* Netlify Input Wrapper */
+.netlify-input-form {
+  background-color: #0f2b2d;
+  border: 1.5px solid #14b8a6;
+  border-radius: 14px;
+  padding: 0.65rem 0.75rem 0.65rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.12);
+}
+
+.netlify-text-input {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 0.9rem;
+  width: 100%;
+  outline: none;
+}
+
+.netlify-text-input::placeholder {
+  color: #64748b;
+}
+
+.netlify-send-btn {
+  background-color: #14b8a6;
+  color: #0c2325;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 0.15s ease;
+}
+
+.netlify-send-btn:hover {
+  background-color: #0d9488;
+}
+
+.netlify-or-divider {
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #64748b;
+  margin: 1.25rem 0;
+}
+
+.netlify-action-card {
+  background-color: #0f2b2d;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+.netlify-action-card:hover {
+  background-color: #133538;
+}
+
+    /* Medium & Large Screen Responsive Adjustments */
+    @media (min-width: 768px) and (max-width: 991.98px) {
+      .display-4 { font-size: 2.4rem; }
+      .ecosystem-card { padding: 1.75rem !important; }
+      .hero-title { font-size: 2.8rem; }
+      .products-title { font-size: 2.2rem; }
+    }
+
+    @media (min-width: 992px) {
+      .hero-section .container,
+      .products-section .container,
+      .section-sage .container,
+      .cta-section .container,
+      .site-footer .container {
+        max-width: 1140px;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .hero-section .container,
+      .products-section .container,
+      .section-sage .container,
+      .cta-section .container,
+      .site-footer .container {
+        max-width: 1200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-md sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center text-decoration-none" href="index.html">
+        <img src="assets/logo.png" alt="Verity Codeworks Logo">
+      </a>
+
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+        <ul class="navbar-nav align-items-md-center gap-md-1 gap-lg-3 mt-3 mt-md-0">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="proworks.html">ProWorks</a></li>
+          <li class="nav-item"><a class="nav-link" href="solutions.html">Solutions</a></li>
+          <li class="nav-item ms-md-3">
+            <a class="btn btn-nav-talk d-inline-flex align-items-center gap-1" href="contact.html">
+              <span>Let’s talk</span>
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5"/>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <!-- Left Column -->
+      <div class="col-12 col-md-6">
+        <div class="hero-eyebrow">INDEPENDENT THINKING. INTELLIGENT SOFTWARE.</div>
+
+        <h1 class="hero-title">
+          Software that<br>
+          <span class="text-mint-accent">moves you forward.</span>
+        </h1>
+
+        <p class="hero-lead">
+          Purposeful software to help people plan better, live stronger, deliver with confidence, and access skilled help when and where it is needed.
+        </p>
+
+        <div class="d-flex flex-wrap gap-3">
+          <a href="products.html" class="btn btn-hero-primary d-inline-flex align-items-center gap-2">
+            <span>Explore our products</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5"/>
+            </svg>
+          </a>
+          <a href="contact.html" class="btn btn-hero-secondary">
+            Talk to us
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="col-12 col-md-6">
+        <div class="ecosystem-frame">
+          <div class="ecosystem-card">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="eco-top-label">THE VERITYCODE ECOSYSTEM</span>
+              <div class="eco-dots d-flex gap-1" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+
+            <h2 class="eco-heading  text-forest">
+              Different challenges.<br>
+              One forward direction.
+            </h2>
+
+            <div class="vstack gap-2">
+              <div class="eco-item">
+                <span class="eco-code code-day">DAY</span>
+                <div>
+                  <div class="fw-bold text-dark small">Plan with intention</div>
+                  <div class="text-muted" style="font-size: 0.78rem;">DAYN-IQ · Personal effectiveness</div>
+                </div>
+              </div>
+
+              <div class="eco-item">
+                <span class="eco-code code-mov">MOV</span>
+                <div>
+                  <div class="fw-bold text-dark small">Build lasting momentum</div>
+                  <div class="text-muted" style="font-size: 0.78rem;">MOVN-IQ · Training & nutrition</div>
+                </div>
+              </div>
+
+              <div class="eco-item">
+                <span class="eco-code code-pro">PRO</span>
+                <div>
+                  <div class="fw-bold text-dark small">Keep work moving</div>
+                  <div class="text-muted" style="font-size: 0.78rem;">VerityPro · Project delivery</div>
+                </div>
+              </div>
+
+              <div class="eco-item">
+                <span class="eco-code code-wrk">WRK</span>
+                <div>
+                  <div class="fw-bold text-dark small">Book skilled help, on demand</div>
+                  <div class="text-muted" style="font-size: 0.78rem;">ProWorks · Available in Nigeria</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="eco-card-footer d-flex justify-content-between align-items-center">
+              <span>THOUGHTFUL SOFTWARE</span>
+              <span class="d-inline-flex align-items-center gap-1">
+                <span>BUILT FOR WHAT'S NEXT</span>
+                <svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-caption-wrap">
+          <div class="hero-caption-text">
+            Illustrative product-family graphic, not an application screenshot.
+          </div>
+          <div class="floating-forward-badge">
+            <span>MADE TO MOVE YOU FORWARD</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+    <!-- TRUST BAR -->
+    <div class="trust-strip border-top border-bottom py-3">
+      <div class="container">
+        <div style="color: #929191;" class="row text-center text-md-start g-3">
+          <div  class="col-6 col-md-3 d-flex align-items-center justify-content-center justify-content-md-start gap-2">
+            <span class="dot-emerald"></span>
+            <span class="small fw-bold text-uppercase tracking-wider">UK incorporated</span>
+          </div>
+          <div class="col-6 col-md-3 d-flex align-items-center justify-content-center justify-content-md-start gap-2">
+            <span class="dot-emerald"></span>
+            <span class="small fw-bold text-uppercase tracking-wider">People-first design</span>
+          </div>
+          <div class="col-6 col-md-3 d-flex align-items-center justify-content-center justify-content-md-start gap-2">
+            <span class="dot-emerald"></span>
+            <span class="small fw-bold text-uppercase tracking-wider">Product-led thinking</span>
+          </div>
+          <div class="col-6 col-md-3 d-flex align-items-center justify-content-center justify-content-md-start gap-2">
+            <span class="dot-emerald"></span>
+            <span class="small fw-bold text-uppercase tracking-wider">Business-ready solutions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="products-section">
+  <div class="container">
+    <div class="row align-items-end mb-5">
+      <div class="col-12 col-md-8">
+        <span class="products-eyebrow">Products</span>
+        <h2 class="products-title mt-1">
+          Built for the things<br>that move life and work.
+        </h2>
+        <p class="products-lead mb-0 mt-3" style="max-width: 540px;">
+          Four purposeful products, spanning personal productivity, wellbeing, project operations and on-demand skilled services.
+        </p>
+      </div>
+      <div class="col-12 col-md-4 text-md-end mt-3 mt-md-0">
+        <a href="products.html" class="view-all-link">
+          <span>View all products</span>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- 4 Product Cards Grid -->
+    <div class="row g-4">
+      
+      <!-- DAYN-IQ -->
+      <div class="col-12 col-md-6 col-lg-3">
+        <article class="product-card-item">
+          <div class="product-banner-box banner-dayn-iq">
+            <span class="banner-brand-title">DAYN-IQ</span>
+          </div>
+          <div class="card-content-wrap">
+            <span class="card-category-pill pill-green">PRODUCTIVITY</span>
+            <h3 class="card-heading">DAYN-IQ</h3>
+            <p class="card-desc">
+              Bring structure to busy days with purposeful planning, meaningful priorities and a clearer weekly rhythm.
+            </p>
+            <a href="dayn-iq.html" class="card-discover-link">
+              <span>Discover DAYN-IQ</span>
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- MOVN-IQ -->
+      <div class="col-12 col-md-6 col-lg-3">
+        <article class="product-card-item">
+          <div class="product-banner-box banner-movn-iq">
+            <span class="banner-brand-title">MOVN-IQ</span>
+          </div>
+          <div class="card-content-wrap">
+            <span class="card-category-pill pill-green">FITNESS & WELLBEING</span>
+            <h3 class="card-heading">MOVN-IQ</h3>
+            <p class="card-desc">
+              A more joined-up approach to strength, training progression and everyday nutrition.
+            </p>
+            <a href="movn-iq.html" class="card-discover-link">
+              <span>Discover MOVN-IQ</span>
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- VerityPro -->
+      <div class="col-12 col-md-6 col-lg-3">
+        <article class="product-card-item">
+          <div class="product-banner-box banner-veritypro">
+            <span class="banner-brand-title">VerityPro</span>
+          </div>
+          <div class="card-content-wrap">
+            <span class="card-category-pill pill-green">PROJECT OPERATIONS</span>
+            <h3 class="card-heading">VerityPro</h3>
+            <p class="card-desc">
+              Make complex work easier to coordinate with clearer tasks, deliverables and project visibility.
+            </p>
+            <a href="veritypro.html" class="card-discover-link">
+              <span>Discover VerityPro</span>
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- ProWorks -->
+      <div class="col-12 col-md-6 col-lg-3">
+        <article class="product-card-item">
+          <div class="product-banner-box banner-proworks">
+            <span class="banner-brand-title">ProWorks</span>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="proworks-icon-abs" aria-hidden="true">
+              <path d="M3 10.5L12 3l9 7.5"/>
+              <path d="M5 9.5V20h14V9.5"/>
+              <path d="M9 20v-6h6v6"/>
+            </svg>
+          </div>
+          <div class="card-content-wrap">
+            <span class="card-category-pill pill-orange">ON-DEMAND TRADES · NIGERIA</span>
+            <h3 class="card-heading">ProWorks</h3>
+            <p class="card-desc">
+              Need a plumber, electrician or skilled professional? ProWorks connects customers in Nigeria with tradespeople for work that needs doing.
+            </p>
+            <a href="proworks.html" class="card-discover-link">
+              <span>Discover ProWorks</span>
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+    <section class="py-5 section-sage border-top border-bottom">
+  <div class="container py-lg-4">
+    <div class="row align-items-center g-5">
+      
+      <!-- Left Column -->
+      <div class="col-12 col-md-6">
+        <span class="small fw-bold text-uppercase text-emerald tracking-wider" style="letter-spacing: 0.12em;">What we do</span>
+        <h2 class="display-6 fw-bold text-forest mt-2 mb-3" style="font-size: 2.75rem; letter-spacing: -0.02em;">
+          More than software.<br>Clearer ways forward.
+        </h2>
+        <p class="text-secondary mb-4" style="font-size: 1.05rem; line-height: 1.6;">
+          From early product ideas to practical workflow solutions, Verity Codeworks combines deep domain thinking with modern product development.
+        </p>
+        
+        <ul class="feature-checklist mb-4">
+          <li>Digital product and application design</li>
+          <li>Business workflow and project-management tools</li>
+          <li>Practical automation and intelligent features</li>
+          <li>Incremental improvement and user-centred iteration</li>
+        </ul>
+
+        <div class="mt-4">
+          <a href="solutions.html" class="btn-solutions">
+            <span>Our solutions</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="col-12 col-md-6">
+        <div class="pov-card-box shadow-sm">
+          <span class="pov-eyebrow">Our point of view</span>
+          <h3 class="pov-heading">
+            Good technology should reduce friction, create clarity and leave people feeling more capable.
+          </h3>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="pov-pill-tag">Human-centred</span>
+            <span class="pov-pill-tag">Focused</span>
+            <span class="pov-pill-tag">Adaptable</span>
+            <span class="pov-pill-tag">Useful</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-box-dark">
+      <div>
+        <span class="cta-eyebrow">Start a conversation</span>
+        <h2 class="cta-heading">Have an idea worth building?</h2>
+      </div>
+      <div>
+        <a href="contact.html" class="btn-cta-mint">
+          <span>Contact Verity Codeworks</span>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+
+ <!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-4">
+      
+      <div class="col-12 col-md-6 col-lg-4">
+        <a class="d-flex align-items-center text-decoration-none mb-3" href="index.html">
+          <img src="assets/logo.png" alt="Verity Codeworks Logo" style="height: 38px; width: auto;">
+        </a>
+        <p class="footer-brand-text">Software that moves you forward.</p>
+        <p class="footer-desc pe-lg-4">
+          Thoughtfully designed digital products and software development services for people and organisations.
+        </p>
+      </div>
+
+      <div class="col-6 col-md-3 col-lg-2">
+        <h4 class="footer-heading">Explore</h4>
+        <ul class="list-unstyled vstack gap-2">
+          <li><a href="about.html" class="footer-link">About us</a></li>
+          <li><a href="solutions.html" class="footer-link">Solutions</a></li>
+          <li><a href="contact.html" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-3 col-lg-2">
+        <h4 class="footer-heading">Products</h4>
+        <ul class="list-unstyled vstack gap-2">
+          <li><a href="dayn-iq.html" class="footer-link">DAYN-IQ</a></li>
+          <li><a href="movn-iq.html" class="footer-link">MOVN-IQ</a></li>
+          <li><a href="veritypro.html" class="footer-link">VerityPro</a></li>
+          <li><a href="proworks.html" class="footer-link">ProWorks</a></li>
+        </ul>
+      </div>
+
+      <div class="col-12 col-md-12 col-lg-4">
+        <h4 class="footer-heading">Get in touch</h4>
+        <ul class="list-unstyled vstack gap-2">
+          <li><a href="mailto:sales@veritycodeworks.com" class="footer-contact-item">sales@veritycodeworks.com</a></li>
+          <li><a href="mailto:support@veritycodeworks.com" class="footer-contact-item">support@veritycodeworks.com</a></li>
+          <li class="footer-address">
+            Registered office: 26 Metcalf Road, Newthorpe, Nottingham NG16 3NL, United Kingdom
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom-bar d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+      <div>
+        © 2026 VERITY CODEWORKS LIMITED · Registered in England & Wales · Company No. 17565081
+      </div>
+      <div class="d-flex gap-4">
+        <a href="privacy.html" class="footer-link">Privacy</a>
+        <a href="cookies.html" class="footer-link">Cookies</a>
+        <a href="terms.html" class="footer-link">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- NETLIFY FLOATING BADGE & MODAL -->
+<div class="netlify-badge-wrapper">
+  <!-- Trigger Button -->
+  <button class="netlify-pill-btn" id="netlifyBadgeBtn" aria-label="Open Netlify Modal">
+    <!-- Exact Netlify Spark/Cross Icon -->
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2V6M12 18V22M2 12H6M18 12H22M4.93 4.93L7.76 7.76M16.24 16.24L19.07 19.07M4.93 19.07L7.76 16.24M16.24 7.76L19.07 4.93" stroke="#14b8a6" stroke-width="2.5" stroke-linecap="round"/>
+      <rect x="10.5" y="10.5" width="3" height="3" fill="#14b8a6"/>
+    </svg>
+    <span>Powered by <strong>Netlify</strong></span>
+  </button>
+
+  <!-- Modal Backdrop & Popup -->
+  <div class="netlify-modal-backdrop" id="netlifyModalBackdrop">
+    <div class="netlify-modal-box">
+      <button class="netlify-modal-close" id="netlifyCloseBtn" aria-label="Close Modal">×</button>
+      
+      <div class="netlify-modal-title">Build your own site with Netlify</div>
+      <div class="netlify-modal-desc">Describe what you want, and an AI agent designs, builds and deploys it in minutes.</div>
+
+      <!-- Functional Input Field -->
+      <div class="netlify-input-form">
+        <input type="text" class="netlify-text-input" placeholder="A shop for my handmade surfboards..." aria-label="Describe your site">
+        <button class="netlify-send-btn" aria-label="Generate site">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 12V4M4 8l4-4 4 4"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="netlify-or-divider">OR</div>
+
+      <a href="#" class="netlify-action-card">
+        <span>Drop a site you already have</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 8h10M9 4l4 4-4 4"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Toggle Script -->
+<script>
+  const badgeBtn = document.getElementById('netlifyBadgeBtn');
+  const modalBackdrop = document.getElementById('netlifyModalBackdrop');
+  const closeBtn = document.getElementById('netlifyCloseBtn');
+
+  badgeBtn.addEventListener('click', () => {
+    modalBackdrop.classList.add('active');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modalBackdrop.classList.remove('active');
+  });
+
+  modalBackdrop.addEventListener('click', (e) => {
+    if (e.target === modalBackdrop) {
+      modalBackdrop.classList.remove('active');
+    }
+  });
+</script>
+
+</body>
+</html>
